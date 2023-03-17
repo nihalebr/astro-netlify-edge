@@ -10,7 +10,7 @@ export default async (request: Request, context: Context) => {
   const regex = /COUNTRYNAME/i;
 
   // Replace the content
-  const countryName = context || "somewhere in the world";
+  const countryName = Object.values(context) || "somewhere in the world";
 
   const updatedPage = page.replace(regex, countryName);
   return new Response(updatedPage, response);
